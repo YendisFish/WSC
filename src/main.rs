@@ -14,12 +14,12 @@ fn main() {
     std::io::stdin().read_line(&mut univ).expect("Not a valid input!");
 
     match &univ.trim() {
-        &"NULL" => NoName(dir, univ),
-        _ => CustomName(dir, univ)
+        &"NULL" => no_name(dir, univ),
+        _ => custom_name(dir, univ)
     }
 }
 
-fn CustomName(dir: String, univ: String) {
+fn custom_name(dir: String, univ: String) {
     std::process::Command::new("dotnet")
     .arg("new")
     .arg("sln")
@@ -63,7 +63,7 @@ fn CustomName(dir: String, univ: String) {
     }
 }
 
-fn NoName(dir: String, univ: String) {
+fn no_name(dir: String, univ: String) {
     std::process::Command::new("dotnet")
         .arg("new")
         .arg("sln")
